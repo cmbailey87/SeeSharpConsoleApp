@@ -12,7 +12,7 @@ namespace ExperciseProgram
             //prompt for first and last name
             //userName
             string userName;
-            Console.Write("what is your First Name: ");            
+            Console.Write("what is your Name: ");            
             userName = Console.ReadLine();   
             //lastname
             //Console.Write("what is your Last Name: ");
@@ -46,32 +46,50 @@ namespace ExperciseProgram
                 }
                 else
                 {
-
-                    int minutes = int.Parse(entryTime);
-
-
-                    //adding new minute of eexercise to the running total
-                    runningTotal = runningTotal + minutes;
-
-                    // display minutes to screen
-                    // repeat until quit
-
-
-                    //creates a string literal 
-
-                    if (minutes <= 10)
+                    //used try to catch any input that didnt match the INT minutes when parsing entryTime
+                    try
                     {
-                        Console.WriteLine("Better than nothing eh?");
+                        int minutes = int.Parse(entryTime);
+
+
+                        //adding new minute of eexercise to the running total
+                        runningTotal = runningTotal + minutes;
+
+                        // display minutes to screen
+                        // repeat until quit
+
+
+                        //creates a string literal 
+                        if (minutes <= 0)
+                        {
+                            Console.WriteLine("invalid input fool....try again");
+                            continue;
+                        }
+                        else if (minutes <= 10)
+                        {
+                            Console.WriteLine("Better than nothing eh?");
+                        }
+                        else if (minutes <= 25)
+                        {
+                            Console.WriteLine("Not Bad Champ...Not Bad");
+                        }
+                        else if (minutes <= 45)
+                        {
+                            Console.WriteLine("You tryna make me break a sweat???");
+                        }
+                        else if (minutes <= 60)
+                        {
+                            Console.WriteLine("You bestin home...");
+                        }
+                        else
+                        {
+                            Console.WriteLine("I guess you are going...Super Saiyan...");
+                        }
                     }
-                    else if (minutes <= 30)
+                    catch(FormatException)
                     {
-                        Console.WriteLine("Not Bad Champ...Not Bad");
-                    } else if (minutes <= 60 )
-                    {
-                        Console.WriteLine("You bestin home...");
-                    } else
-                    {
-                        Console.WriteLine("I guess you are going...Super Saiyan...");
+                        Console.WriteLine("What you typed in was hog wash BISH!! Try again");
+                        continue;
                     }
                         
                 }
