@@ -21,7 +21,7 @@ namespace ExperciseProgram
 
 
             //starting at zero
-            int runningTotal = 0;
+            double runningTotal = 0;
 
             //boolean condition for while loop.
             //set to true to keep running
@@ -40,16 +40,16 @@ namespace ExperciseProgram
                 
 
                 //if statement for the string entryTime to detect if user typed quit.
-                if (entryTime == "quit")
+                if (entryTime.ToLower() == "quit" )
                 {
                     keepRunning = false;
                 }
                 else
                 {
-                    //used try to catch any input that didnt match the INT minutes when parsing entryTime
+                    //used try to catch any input that didnt match the double minutes when parsing entryTime
                     try
                     {
-                        int minutes = int.Parse(entryTime);
+                        double minutes = double.Parse(entryTime);
 
 
                         //adding new minute of eexercise to the running total
